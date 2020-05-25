@@ -2,53 +2,57 @@
     box-sizing: border-box;
 }
 
-@import url(https://fonts.googleapis.com/css?family=Open + Sans);
+@import url('https://fonts.googleapis.com/css2?family=Hammersmith+One&family=Special+Elite&display=swap');
 body {
-    background: #f2f2f2;
-    font-family: "Open Sans", sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    font-family: 'Hammersmith One', sans-serif;
     font-size: 16px;
 }
 
 .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(45deg, #26547c, #06d6a0);
     width: 400px;
-    height: 700px;
+    height: 100vh;
+    margin: 0 auto;
 }
 
 .searchForm {
-    width: 80%;
-    padding-top: 3em;
+    width: 100%;
+    height: 50px;
+    padding: 3em 0;
     display: flex;
-    flex-grow: 1;
+    box-shadow: grey;
+}
+
+.userLocation {
+    width: 60px;
+    height: 50px;
+    border: 1px solid #58BAC9;
+    background: #58BAC9;
+    text-align: center;
+    color: #fff;
+    border-radius: 5px 0 0 5px;
+    cursor: pointer;
+    font-size: 20px;
 }
 
 .searchTerm {
     width: 100%;
-    border: 3px solid #00b4cc;
+    border: 3px solid #58BAC9;
     border-right: none;
     padding: 5px;
-    height: 36px;
-    border-radius: 5px 0 0 5px;
+    height: 50px;
     outline: none;
-    color: #9dbfaf;
+    color: #58BAC9;
 }
 
 .searchTerm:focus {
-    color: #00b4cc;
+    color: #58BAC9;
 }
 
 .searchButton {
-    width: 40px;
-    height: 36px;
-    border: 1px solid #00b4cc;
-    background: #00b4cc;
+    width: 60px;
+    height: 50px;
+    border: 1px solid #58BAC9;
+    background: #58BAC9;
     text-align: center;
     color: #fff;
     border-radius: 0 5px 5px 0;
@@ -57,17 +61,27 @@ body {
 }
 
 .display {
-    flex-grow: 2;
+    background: url(../img/drawkit-nature-man-colour-400px.png);
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 3em;
+    text-align: center;
 }
 
 .city {
     font-size: 1.5em;
 }
 
-.date {
-    font-size: 1.2em;
+.temp {
+    font-size: 4em;
+    font-weight: 900;
 }
 
-.temp {
-    font-size: 5em;
+.description {
+    font-size: 2em;
+}
+
+.minmax {
+    font-size: 2em;
 }

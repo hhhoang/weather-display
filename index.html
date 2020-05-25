@@ -18,6 +18,9 @@
     <main class="container">
         <!-- Search Form -->
         <div class="searchForm">
+            <button type="submit" id="location" class="userLocation">
+                <i class="fa fa-location-arrow"></i>
+            </button>
             <input type="search" id="search" class="searchTerm" placeholder="Enter a city name">
             <button type="submit" id="submit" class="searchButton">
                 <i class="fa fa-search"></i>
@@ -25,11 +28,16 @@
         </div>
         <!-- Display Section -->
         <div class="display">
-            <p class="city">Berlin, DE</p>
+            <!-- <p class="city">Berlin, DE</p>
             <p class="date">Mon May 04 2020</p>
             <p class="temp">8.38℃</p>
             <p class="description">Rainy</p>
-            <p class="minmax">5.56℃ / 10.56℃</p>
+            <p class="minmax">5.56℃ / 10.56℃</p> -->
+            <p class="city"></p>
+            <p class="date"></p>
+            <p class="temp"></p>
+            <p class="description"></p>
+            <p class="minmax"></p>
         </div>
     </main>
     <script src="js/main.js"></script>
