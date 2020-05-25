@@ -12,8 +12,9 @@ function getWeatherData(searchedCity, date) {
             $(".date").html(date);
             $(".temp").html(data["main"]["temp"] +
                 "&#8451;");
-            $(".description").html(data["weather"]["description"]);
-            console.log(data["weather"]["description"], "aaa");
+            console.log(data["coord"], "aaaa");
+            $(".description").html(data["weather"][0]["description"]);
+            //console.log(data["weather"]["description"], "aaa");
             $(".minmax").html(
                 data["main"]["temp_min"] + "&#8451; | " + data["main"]["temp_max"] + "&#8451;"
             );
@@ -35,6 +36,7 @@ function success(pos) {
 }
 
 function getGeolocation() {
+    // Set time out, longer than 1 minute stop
     if (navigator.geolocation) {
         $(".city").html('Locating…');
         navigator.geolocation.getCurrentPosition(success, error);
