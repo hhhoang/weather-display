@@ -1,11 +1,11 @@
 const api = {
-    url: "http://api.openweathermap.org/data/2.5/weather?q=",
+    url: "http://api.openweathermap.org/data/2.5/weather?",
     key: "5fc8363bc702ad693c40c8d30de0c321",
 };
 
 
 function getWeatherData(searchedCity, date) {
-    fetch(api.url + searchedCity + "&units=metric&APPID=" + api.key)
+    fetch(api.url + "q=" + searchedCity + "&units=metric&APPID=" + api.key)
         .then((response) => response.json())
         .then((data) => {
             $(".city").html(data["name"] + ", " + data["sys"]["country"]);
@@ -32,7 +32,34 @@ function error(err) {
 
 function success(pos) {
     $(".city").html('Located.');
-    alert(`${pos.coords.latitude}, ${pos.coords.longitude}`);
+    //alert(`${pos.coords.latitude}, ${pos.coords.longitude}`);
+    let lat = Math.round(pos.coords.latitude * 100) / 100;
+    let lon = Math.round(pos.coords.longitude * 100) / 100;
+    console.log(lat, lon);
+
+    let url = "http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&appid=" + api.key + "&units=metric";
+
+    //api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={your api key}
+    fetch(url)
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data, "aaaaaaa");
+            let today = new Date();
+            let date = today.toDateString();
+            let time = today.getHours();
+            $(".city").html(data["name"] + ", " + data["sys"]["country"]);
+            $(".date").html(date);
+            $(".temp").html(data["main"]["temp"] +
+                "&#8451;");
+            console.log(data["coord"], "aaaa");
+            $(".description").html(data["weather"][0]["description"]);
+            //console.log(data["weather"]["description"], "aaa");
+            $(".minmax").html(
+                data["main"]["temp_min"] + "&#8451; | " + data["main"]["temp_max"] + "&#8451;"
+            );
+
+        })
+        .catch((error) => console.log(error));
 }
 
 function getGeolocation() {
@@ -49,6 +76,7 @@ function getGeolocation() {
 
 //$("input:text").val()
 $(document).ready(function() {
+    // if user enter city
     $("#submit").on("click", function() {
         let searchedCity = $("#search").val();
         let today = new Date();
@@ -56,6 +84,7 @@ $(document).ready(function() {
         let time = today.getHours();
         getWeatherData(searchedCity, date);
     });
+    // if user allow know your location
     $("#location").on('click', function(e) {
         getGeolocation();
         event.stopPropagation();
