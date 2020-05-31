@@ -1,5 +1,5 @@
 const api = {
-    url: "http://api.openweathermap.org/data/2.5/weather?",
+    url: "https://api.openweathermap.org/data/2.5/weather?",
     key: "5fc8363bc702ad693c40c8d30de0c321",
 };
 
@@ -37,7 +37,7 @@ function success(pos) {
     let lon = Math.round(pos.coords.longitude * 100) / 100;
     console.log(lat, lon);
 
-    let url = "http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&appid=" + api.key + "&units=metric";
+    let url = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&appid=" + api.key + "&units=metric";
 
     //api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={your api key}
     fetch(url)
