@@ -3,24 +3,26 @@ const api = {
     key: "5fc8363bc702ad693c40c8d30de0c321",
 };
 
+// TO-D0: city not found
+//{"cod":"404","message":"city not found"}
 
-function getWeatherData(searchedCity, date) {
+function getWeatherData(searchedCity, date, greeting) {
     fetch(api.url + "q=" + searchedCity + "&units=metric&APPID=" + api.key)
         .then((response) => response.json())
         .then((data) => {
+            $(".greeting").html(greeting);
             $(".city").html(data["name"] + ", " + data["sys"]["country"]);
             $(".date").html(date);
-            $(".temp").html(data["main"]["temp"] +
-                "&#8451;");
+            $(".temp").html(data["main"]["temp"] + "&#8451;");
             console.log(data["coord"], "aaaa");
             $(".description").html(data["weather"][0]["description"]);
             //console.log(data["weather"]["description"], "aaa");
             $(".minmax").html(
-                data["main"]["temp_min"] + "&#8451; | " + data["main"]["temp_max"] + "&#8451;"
+                data["main"]["temp_min"] +
+                "&#8451; | " +
+                data["main"]["temp_max"] +
+                "&#8451;"
             );
-            $(".display").css({
-                'background': 'url(../img/background.jpeg);'
-            });
         })
         .catch((error) => console.log(error));
 }
@@ -31,13 +33,20 @@ function error(err) {
 }
 
 function success(pos) {
-    $(".city").html('Located.');
+    $(".city").html("Located.");
     //alert(`${pos.coords.latitude}, ${pos.coords.longitude}`);
     let lat = Math.round(pos.coords.latitude * 100) / 100;
     let lon = Math.round(pos.coords.longitude * 100) / 100;
     console.log(lat, lon);
 
-    let url = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&appid=" + api.key + "&units=metric";
+    let url =
+        "https://api.openweathermap.org/data/2.5/weather?lat=" +
+        lat +
+        "&lon=" +
+        lon +
+        "&appid=" +
+        api.key +
+        "&units=metric";
 
     //api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={your api key}
     fetch(url)
@@ -47,17 +56,20 @@ function success(pos) {
             let today = new Date();
             let date = today.toDateString();
             let time = today.getHours();
+            let greeting = adjustGreeting(time);
+            $(".greeting").html(greeting);
             $(".city").html(data["name"] + ", " + data["sys"]["country"]);
             $(".date").html(date);
-            $(".temp").html(data["main"]["temp"] +
-                "&#8451;");
+            $(".temp").html(data["main"]["temp"] + "&#8451;");
             console.log(data["coord"], "aaaa");
             $(".description").html(data["weather"][0]["description"]);
             //console.log(data["weather"]["description"], "aaa");
             $(".minmax").html(
-                data["main"]["temp_min"] + "&#8451; | " + data["main"]["temp_max"] + "&#8451;"
+                data["main"]["temp_min"] +
+                "&#8451; | " +
+                data["main"]["temp_max"] +
+                "&#8451;"
             );
-
         })
         .catch((error) => console.log(error));
 }
@@ -65,14 +77,22 @@ function success(pos) {
 function getGeolocation() {
     // Set time out, longer than 1 minute stop
     if (navigator.geolocation) {
-        $(".city").html('Locating…');
+        $(".city").html("Locating…");
         navigator.geolocation.getCurrentPosition(success, error);
     } else {
-        $(".city").html('Geolocation is not supported by this browser.');
+        $(".city").html("Geolocation is not supported by this browser.");
     }
 }
 
-
+function adjustGreeting(time) {
+    if (time <= 12) {
+        return "Good morning!";
+    } else if (time > 12 && time <= 18) {
+        return "Good afternoon!";
+    } else {
+        return "Good evening!";
+    }
+}
 
 //$("input:text").val()
 $(document).ready(function() {
@@ -82,10 +102,11 @@ $(document).ready(function() {
         let today = new Date();
         let date = today.toDateString();
         let time = today.getHours();
-        getWeatherData(searchedCity, date);
+        let greeting = adjustGreeting(time);
+        getWeatherData(searchedCity, date, greeting);
     });
     // if user allow know your location
-    $("#location").on('click', function(e) {
+    $("#location").on("click", function(e) {
         getGeolocation();
         event.stopPropagation();
     });

@@ -2,9 +2,9 @@
     box-sizing: border-box;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 body {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 16px;
     background: #8360c3;
     /* fallback for old browsers */
@@ -70,6 +70,10 @@ body {
     padding-top: 3em;
     text-align: center;
     color: white;
+}
+
+.greeting {
+    font-size: 1.5em;
 }
 
 .city {
