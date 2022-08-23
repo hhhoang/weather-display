@@ -1,6 +1,6 @@
 const api = {
     url: "https://api.openweathermap.org/data/2.5/weather?",
-    key: "5fc8363bc702ad693c40c8d30de0c321",
+    key: "52e348032f016a3154bff1b4668aaefe",
 };
 
 // TO-D0: city not found
