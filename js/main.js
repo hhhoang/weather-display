@@ -6,6 +6,8 @@ const api = {
 // TO-D0: city not found
 //{"cod":"404","message":"city not found"}
 
+//https://api.openweathermap.org/data/2.5/weather?q=London&appid={API key}
+
 function getWeatherData(searchedCity, date, greeting) {
     fetch(api.url + "q=" + searchedCity + "&units=metric&APPID=" + api.key)
         .then((response) => response.json())
@@ -112,4 +114,4 @@ $(document).ready(function() {
     });
 });
 
-//http: //api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=5fc8363bc702ad693c40c8d30de0c321&units=metric
+//https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}
