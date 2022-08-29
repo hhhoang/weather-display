@@ -59,7 +59,7 @@ function success(pos) {
             let date = today.toDateString();
             let time = today.getHours();
             let greeting = adjustGreeting(time);
-            $(".greeting").html(greeting);
+            //$(".greeting").html(greeting);
             $(".city").html(data["name"] + ", " + data["sys"]["country"]);
             $(".date").html(date);
             $(".temp").html(data["main"]["temp"] + "&#8451;");
