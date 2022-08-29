@@ -2,9 +2,9 @@
     box-sizing: border-box;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 16px;
     background: #8360c3;
     /* fallback for old browsers */
@@ -67,6 +67,7 @@ body {
 }
 
 .display {
+    background-color: white;
     padding-top: 3em;
     text-align: center;
     color: white;
