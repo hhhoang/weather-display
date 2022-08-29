@@ -67,9 +67,9 @@ function success(pos) {
             $(".description").html(data["weather"][0]["description"]);
             //console.log(data["weather"]["description"], "aaa");
             $(".minmax").html(
-                data["main"]["temp_min"] +
+                "min: " + data["main"]["temp_min"] +
                 "&#8451; | " +
-                data["main"]["temp_max"] +
+                "max: " + data["main"]["temp_max"] +
                 "&#8451;"
             );
         })
