@@ -73,8 +73,10 @@ body {
     color: white;
 }
 
-.greeting {
-    font-size: 1.5em;
+.title {
+    font-size: 2em;
+    text-align: center;
+    color: grey;
 }
 
 .city {
