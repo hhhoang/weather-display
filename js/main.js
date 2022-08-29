@@ -8,11 +8,11 @@ const api = {
 
 //https://api.openweathermap.org/data/2.5/weather?q=London&appid={API key}
 
-function getWeatherData(searchedCity, date, greeting) {
+function getWeatherData(searchedCity, date) {
     fetch(api.url + "q=" + searchedCity + "&units=metric&APPID=" + api.key)
         .then((response) => response.json())
         .then((data) => {
-            $(".greeting").html(greeting);
+            //$(".greeting").html(greeting);
             $(".city").html(data["name"] + ", " + data["sys"]["country"]);
             $(".date").html(date);
             $(".temp").html(data["main"]["temp"] + "&#8451;");
@@ -58,7 +58,7 @@ function success(pos) {
             let today = new Date();
             let date = today.toDateString();
             let time = today.getHours();
-            let greeting = adjustGreeting(time);
+            //let greeting = adjustGreeting(time);
             //$(".greeting").html(greeting);
             $(".city").html(data["name"] + ", " + data["sys"]["country"]);
             $(".date").html(date);
@@ -104,8 +104,8 @@ $(document).ready(function() {
         let today = new Date();
         let date = today.toDateString();
         let time = today.getHours();
-        let greeting = adjustGreeting(time);
-        getWeatherData(searchedCity, date, greeting);
+        //let greeting = adjustGreeting(time);
+        getWeatherData(searchedCity, date);
     });
     // if user allow know your location
     $("#location").on("click", function(e) {
