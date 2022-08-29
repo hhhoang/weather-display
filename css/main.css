@@ -2,9 +2,9 @@
     box-sizing: border-box;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;400;700&display=swap');
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Raleway', sans-serif;
     font-size: 16px;
     /*background: #8360c3;*/
     background: #FFB1A4;
@@ -38,8 +38,7 @@ body {
     background: #58BAC9;
     text-align: center;
     color: #fff;
-    border-radius: 25px;
-    /*border-radius: 5px 0 0 5px;*/
+    border-radius: 5px 0 0 5px;
     cursor: pointer;
     font-size: 20px;
 }
@@ -52,7 +51,7 @@ body {
     height: 50px;
     outline: none;
     color: #58BAC9;
-    border-radius: 25px;
+    border-radius: 5px;
 }
 
 .searchTerm:focus {
@@ -66,8 +65,7 @@ body {
     background: #58BAC9;
     text-align: center;
     color: #fff;
-    border-radius: 25px;
-    /* border-radius: 0 5px 5px 0; */
+    border-radius: 0 5px 5px 0;
     cursor: pointer;
     font-size: 20px;
 }
@@ -82,30 +80,37 @@ body {
 
 .title {
     font-size: 2em;
+    font-weight: 700;
     text-align: center;
     color: grey;
+    
 }
 
 .city {
     font-size: 2em;
+    font-weight: 400;
 }
 
 .date {
     font-size: 1.5em;
+    font-weight: 400;
 }
 
 .temp {
-    font-size: 4em;
-    font-weight: 900;
+    font-size: 5em;
+    font-weight: 100;
     letter-spacing: 0.1em;
+    white-space: nowrap;
 }
 
 .description {
     font-size: 2em;
+    font-weight: 400;
 }
 
 .minmax {
     font-size: 1.5em;
+    font-weight: 400;
 }
 
 .blob {
