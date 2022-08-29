@@ -48,6 +48,7 @@ body {
     height: 50px;
     outline: none;
     color: #58BAC9;
+    border-radius: 25px;
 }
 
 .searchTerm:focus {
@@ -71,6 +72,7 @@ body {
     padding-top: 3em;
     text-align: center;
     color: white;
+    border-radius: 25px;
 }
 
 .title {
